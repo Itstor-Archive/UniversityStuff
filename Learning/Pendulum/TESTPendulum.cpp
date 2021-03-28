@@ -1,3 +1,5 @@
+//This code is the result of translation from java language, made by Codetrain
+
 #include <graphics.h>
 #include <math.h>
 #include <vector>
@@ -13,9 +15,9 @@ int main()
     float angleV = 0.0f;
     float angleA = 0.0f;
 
-    vector<int> bob (2);
+    vector<int> bob(2);
     float len;
-    vector<int> origin (2);
+    vector<int> origin(2);
 
     float gravity = 1;
 
@@ -50,7 +52,8 @@ int main()
         delay(10);
 
         cleardevice();
-;    }
+        ;
+    }
 
     getch();
     // closegraph();
