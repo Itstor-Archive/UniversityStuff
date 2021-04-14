@@ -21,14 +21,11 @@ void drawMonas(int x, int y);
 void drawBuilding_2(int x, int y);
 void drawScene(int * arr, int x, int arrsize);
 void randomize(int * arr, int arrsize);
-void drawCloud(int x, int y, float scale);
 /*End of Prototype Function*/
 
 class Cloud {
     private:
-        int cloudSize[6];
-        int xOff[6];
-        int yOff[6];
+        float scale;
         float xLoc, yLoc;
         float speed;
     public:
@@ -36,32 +33,30 @@ class Cloud {
             //create new cloud
             newCloud();
         }
-        void drawCloud(float x = 0) {
+        void drawCloud(float x) {
             setfillstyle(SOLID_FILL, WHITE);
-
-            for (int i; i < 6; i++) {
-                fillellipse(xOff[i] + x, yOff[i] + yLoc, cloudSize[i], cloudSize[i]);
-            }
-
+            fillellipse(69 * this->scale + x, 444 * this->scale - this->yLoc, 43 * this->scale, 43 * this->scale);
+            fillellipse(22 * this->scale + x, 445 * this->scale - this->yLoc, 17 * this->scale, 17 * this->scale);
+            fillellipse(0 * this->scale + x, 467 * this->scale - this->yLoc, 32 * this->scale, 24 * this->scale);
+            fillellipse(36 * this->scale + x, 475 * this->scale - this->yLoc, 24 * this->scale, 25 * this->scale);
+            fillellipse(67 * this->scale + x, 482 * this->scale - this->yLoc, 19 * this->scale, 14 * this->scale);
+            fillellipse(108 * this->scale + x, 480* this->scale - this->yLoc, 30 * this->scale, 20 * this->scale);
+            fillellipse(139 * this->scale + x, 467 * this->scale - this->yLoc, 19 * this->scale, 19 * this->scale);
+            fillellipse(113 * this->scale + x, 465 * this->scale - this->yLoc, 25 * this->scale, 25 * this->scale);
             resetColor(FILL);
         }
         void moveCloud() {
             xLoc = xLoc - speed;
             drawCloud(xLoc);
 
-            if (xLoc <= -50) {
+            if (xLoc <= -171) {
                 newCloud();
             }
         }
         void newCloud() {
-            for (int i = 0; i < 6; i++) {
-                cloudSize[i] = 20 + rand() % 20 + 1;
-                xOff[i] = -25 + rand() % 50 + 1;
-                yOff[i] = -15 + rand() % 30 + 1;
-            }
-
+            scale = 0.2 + (float)(rand() % 8 + 1) / 10;
             yLoc = rand() % 280 + 1;
-            xLoc = getmaxx() + 50 + rand() % 20 + 1;
+            xLoc = getmaxx() + 139 + rand() % 20 + 1;
             speed = (float)(2 + rand() % 8 + 1) / 10;
         }
 };
@@ -74,10 +69,10 @@ class Balloon {
     public:
         int fheight = 25;
 
-        Balloon(int xb, int yb) {
-            x = xb;
-            y = yb;
-            drawBallon(x, y);
+        Balloon(int x, int y) {
+            this->x = x;
+            this->y = y;
+            drawBallon(this->x, this->y);
         }
         void drawBallon(float x, float y) {
             rect(56 + x, 0 + y, 38, 19);
@@ -132,7 +127,7 @@ int main() {
             cloud[3].moveCloud();
             cloud[4].moveCloud();
             hotballoon.moveBalloon();
-            delay(1);
+            delay(5);
             cleardevice();
             //cout << mousey() << " " << mousex() << endl;
         }
@@ -184,10 +179,12 @@ void handDraw(int x, int y, int point[], int numpoint, int color, int style) {
 
 void drawBezier(int x1, int y1, int x2, int y2, int x3, int y3, int x4, int y4) {
     float x, y, t, t2, x_2, y_2;
+
     y1 = originy(y1);
     y2 = originy(y2);
     y3 = originy(y3);
     y4 = originy(y4);
+
     for (float t = 0; t <= 1.1; t += 0.1) {
         x = pow((1 - t), 3) * x1 + 3 * pow((1 - t), 2) * t * x2 + 3 * (1 - t) * pow(t, 2) * x3 + pow(t, 3) * x4;
         y = pow((1 - t), 3) * y1 + 3 * pow((1 - t), 2) * t * y2 + 3 * (1 - t) * pow(t, 2) * y3 + pow(t, 3) * y4;
@@ -266,18 +263,7 @@ void drawBuilding_1(int x = 0, int y = 0) {
 }
 
 void drawBurjArab(int x, int y) {
-    int dasar[] = {
-        0,
-        0,
-        150,
-        0,
-        138,
-        8,
-        12,
-        8,
-        0,
-        0
-    };
+    int dasar[] = {0,0, 150,0, 138,8, 12,8, 0,0};
 
     drawBezier(27 + x, 272 + y, 114 + x, 205 + y, 135 + x, 97 + y, 115 + x, 8 + y);
     drawLine(27 + x, 272 + y, 27 + x, 8 + y);
@@ -309,30 +295,7 @@ void drawBurjArab(int x, int y) {
 }
 
 void drawMonas(int x, int y) {
-    int batang[] = {
-        61,
-        52,
-        68,
-        231,
-        59,
-        231,
-        56,
-        236,
-        56,
-        237,
-        94,
-        237,
-        94,
-        236,
-        91,
-        230,
-        81,
-        230,
-        89,
-        52,
-        61,
-        52
-    };
+    int batang[] = {61,52, 68,231, 59,231, 56,236, 56,237, 94,237, 94,236, 91,230, 81,230, 89,52, 61,52};
 
     rect(26 + x, 0 + y, 97, 15);
     drawBezier(45 + x, 15 + y, 38 + x, 26 + y, 22 + x, 38 + y, 8 + x, 44 + y);
@@ -353,17 +316,4 @@ void drawBuilding_2(int x, int y) {
     drawBezier(65 + x, 288 + y, 9 + x, 288 + y, 9 + x, 288 + y, 9 + x, 268 + y);
     drawLine(9 + x, 268 + y, 9 + x, 0 + y);
     rect(74 + x, 0 + y, 60, 235, WHITE, LINE_FILL);
-}
-
-void drawCloud(int x, int y, float scale) {
-    setfillstyle(SOLID_FILL, WHITE);
-    fillellipse((101 + x) * scale, (744 - y) * scale, 43 * scale, 43 * scale);
-    fillellipse((54 + x) * scale, (745 - y) * scale, 17 * scale, 17 * scale);
-    fillellipse((32 + x) * scale, (767 - y) * scale, 32 * scale, 24 * scale);
-    fillellipse((68 + x) * scale, (775 - y) * scale, 24 * scale, 25 * scale);
-    fillellipse((99 + x) * scale, (782 - y) * scale, 19 * scale, 14 * scale);
-    fillellipse((140 + x) * scale, (780 - y) * scale, 30 * scale, 20 * scale);
-    fillellipse((171 + x) * scale, (767 - y) * scale, 19 * scale, 19 * scale);
-    fillellipse((145 + x) * scale, (765 - y) * scale, 25 * scale, 25 * scale);
-    resetColor(FILL);
 }
