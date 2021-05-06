@@ -1,0 +1,385 @@
+@import url("//fonts.googleapis.com/css2?family=Bebas+Neue&family=Lato:wght@300&family=Open+Sans:wght@300&display=swap");
+
+:root {
+    --line: rgb(56, 57, 68);
+    --photosize: 70%;
+}
+
+* {
+    margin: 0;
+}
+
+html {
+    scrollbar-face-color: #646464;
+    scrollbar-base-color: #646464;
+    scrollbar-3dlight-color: #646464;
+    scrollbar-highlight-color: #646464;
+    scrollbar-track-color: #000;
+    scrollbar-arrow-color: #000;
+    scrollbar-shadow-color: #646464;
+}
+
+::-webkit-scrollbar {
+    width: 13px;
+    height: 3px;
+}
+
+::-webkit-scrollbar-button {
+    background-color: #666;
+}
+
+::-webkit-scrollbar-track {
+    background-color: rgb(69, 74, 77);
+}
+
+::-webkit-scrollbar-track-piece {
+    background-color: rgb(32, 35, 36);
+}
+
+::-webkit-scrollbar-thumb {
+    height: 50px;
+    background-color: #666;
+    border-radius: 3px;
+}
+
+::-webkit-scrollbar-corner {
+    background-color: #646464;
+}
+
+::-webkit-resizer {
+    background-color: #666;
+}
+
+body {
+    background-image: url(../img/Pattern-1.gif);
+    background-attachment: fixed;
+    /* font-family: "Helvetica"; */
+}
+
+hr.line {
+    display: block;
+    width: 10%;
+    background-color: var(--line);
+    border: 1px solid var(--line);
+    margin: 0px 0;
+}
+
+.fullscreen {
+    height: 100vh;
+}
+
+.vline {
+    border-left: 1px solid rgb(201, 201, 201);
+    height: 90%;
+    float: left;
+    margin-right: 20px;
+}
+
+mark {
+    color: #272830;
+    background-color: white;
+    display: inline-block;
+    height: 1em;
+    width: 2.4em;
+    text-shadow: none;
+    line-height: 1.1em;
+}
+
+.topbar {
+    position: absolute;
+    /* background-color: white; */
+    left: 0;
+    right: 0;
+    height: 50px;
+    padding: 5px 20px;
+    box-sizing: border-box;
+    /* border: 1px solid white; */
+}
+
+.center-items {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.center-vertical {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.topbar h2 {
+    color: white;
+    text-align: right;
+    font-family: "Open Sans";
+    line-height: 50px;
+}
+
+.intro {
+    position: relative;
+}
+
+.intro h1 {
+    color: white;
+    text-align: center;
+    font-family: "Bebas Neue", cursive;
+    font-size: 100pt;
+    line-height: 120px;
+}
+
+.parallax {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: -999;
+}
+
+.empty {
+    position: relative;
+    height: 100vh;
+    background-color: rgba(255, 255, 255, 0);
+    display: block;
+}
+
+.text-shadow {
+    text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+}
+
+.container {
+    position: relative;
+    box-sizing: border-box;
+    display: block;
+    background-color: rgba(255, 255, 255, 1);
+    border-radius: 50px;
+    width: 90%;
+    height: 90vh;
+    margin-top: -100px;
+    margin-left: 5%;
+    padding: 100px;
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.5);
+    font-family: "Lato", sans-serif;
+    overflow: hidden;
+}
+
+.container h2 {
+    position: absolute;
+    font-size: 35pt;
+    font-family: "Lato", sans-serif;
+    color: rgb(56, 57, 68);
+    text-align: center;
+    top: 9%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.slide {
+    width: 100%;
+    height: 100%;
+}
+
+.about,
+.project,
+.experience,
+.contact {
+    position: relative;
+}
+
+.photo {
+    display: block;
+    position: relative;
+    float: left;
+    /* background-color: rgb(0, 68, 73); */
+    width: 40%;
+    height: 75vh;
+}
+
+.photo-frame {
+    width: 60%;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.photo-frame img {
+    width: auto;
+    height: 100%;
+    transform: translate(-190px, 0);
+    filter: grayscale(100%);
+    transition: 0.3s;
+}
+
+.photo-frame img:hover {
+    filter: grayscale(0);
+}
+
+.biodata {
+    position: relative;
+    float: right;
+    /* background-color: yellow; */
+    width: 60%;
+    height: 75vh;
+    overflow: auto;
+}
+
+.biodata h3 {
+    box-sizing: border-box;
+    font-family: "Open Sans";
+    font-size: 1vw;
+    line-height: 40px;
+    vertical-align: middle;
+    padding-right: 40px;
+    padding-left: 30px;
+}
+
+.project {
+    height: 75vh;
+    /* margin-top:1.5%; */
+    overflow: auto;
+}
+
+.project .first-card {
+    margin-left: 13%;
+}
+
+.card {
+    /* float: left; */
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+    width: 20%;
+    height: 65%;
+    border-radius: 15px;
+    margin-right: 40px;
+    margin-top: 40px;
+    overflow: hidden;
+}
+
+.card:hover,
+.card-social:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+.image {
+    width: 100%;
+    height: 40%;
+    overflow: hidden;
+}
+
+.card img {
+    object-fit: center;
+    overflow: hidden;
+}
+
+.card-container {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.content {
+    padding: 10px 16px;
+}
+
+.content h4 {
+    font-family: "Lato", sans-serif;
+    font-size: 20pt;
+    margin-bottom: 5px;
+}
+
+.content p {
+    font-size: 1vw;
+    margin-top: 10px;
+}
+
+.contact {
+    height: 75vh;
+}
+
+.card-social:last-child {
+    margin-right: 0;
+}
+
+.card-social {
+    display: inline-block;
+    box-sizing: border-box;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+    aspect-ratio: 1/1;
+    width: 17.5%;
+    border-radius: 15px;
+    margin-right: 40px;
+    padding-top: 20px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.card-social i {
+    font-size: 9vw;
+    text-align: center;
+    width: 100%;
+    transition: 0.3s;
+}
+
+.card-social h4 {
+    font-family: "Open Sans";
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    font-size: 1.2vw;
+}
+
+.card-social .content{
+    padding: 13px 0px 0px 0px;
+}
+
+.card-social:hover i,
+.card-social:hover h4 {
+    color: white;
+}
+
+.card-social:hover {
+    background-color: #272830;
+}
+
+.footer {
+    height: 70px;
+}
+
+.footer h3,
+.footer a {
+    text-align: center;
+    font-family: "Lato", sans-serif;
+    line-height: 70px;
+    color: #fff;
+    text-decoration: none;
+}
+
+.footer a:hover {
+    color: #e25555;
+    transition: 0.3s;
+}
+
+.clearfix::after {
+    content: "";
+    display: inline;
+    clear: both;
+}
+
+/* style for carousel */
+.slick-slide:focus {
+    outline: none;
+}
+
+.slick-prev:before {
+    color: #272830;
+    font-size: 30px;
+}
+
+.slick-next:before {
+    color: #272830;
+    font-size: 30px;
+}
