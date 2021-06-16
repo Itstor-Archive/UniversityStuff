@@ -7,8 +7,8 @@ int main(){
     float PI = M_PI;
     float k, r, x, y;
 
-    int n = 2;
-    int d = 71;
+    int n = 4;
+    int d = 97;
     int color;
     int height = 800;
     int width = 800;
@@ -17,7 +17,7 @@ int main(){
 
     initwindow(width, height);
 
-    for (int theta = 0; theta<=361; theta++){
+    for (float theta = 0; theta<=361; theta += 0.5){
         k = theta * PI/180;
         r = 300 * sin(n*k);
         x = r*cos(k) + originX;
@@ -25,7 +25,7 @@ int main(){
         color = rand() % 16 + 1;
         setcolor(color);
         circle(x, y, 10);
-        delay(10);
+        delay(1);
     }
     getch();
 }
