@@ -1,0 +1,74 @@
+\documentclass[]{article}
+\usepackage{xcolor}
+\usepackage{listings}
+\usepackage{showexpl}
+\usepackage[bahasai]{babel}
+\lstset{language=C++,
+	% numbers=left,
+	%	stepnumber=1,
+	numberstyle=\ttfamily,
+	basicstyle=\ttfamily,
+	keywordstyle=\color{blue}\ttfamily,
+	stringstyle=\color{red}\ttfamily,
+	commentstyle=\color{gray}\ttfamily,
+	morecomment=[l][\color{magenta}]{\#}
+}
+
+
+%opening
+\title{Tugas 1: Implementasi Operasi Dasar Pada Array}
+\author{Akhmad Thoriq Afif NRP 5024201028}
+
+\begin{document}
+\maketitle
+\section{Listing Program}
+Berikut ini merupakan source code dari tugas 1 Implementasi Operasi Dasar pada Array. Program ini ditulis menggunakan bahasa C++
+\lstinputlisting[label={kodingan},caption={Operasi dasar Dalam Array}, language={C++}]{tugas.cpp}
+\subsection*{OUTPUT PROGRAM:}
+\fbox{\begin{minipage}{40em}
+	Mencetak Array definedArray: \newline
+	[100.2, 237.1, 127.24] \newline
+	Menambahkan 81, 83, 72, 100 ke dalam emptyArray: \newline
+	[81, 83, 72, 10] \newline
+	Menghapus element dengan index 1 pada emptyArray: \newline
+	[81, 72, 10] \newline
+	Memasukkan angka 100 index 2 pada emptyArray: \newline
+	[81, 72, 100, 10] \newline
+	Index angka 100 pada emptyArray: \newline
+	2 \newline
+	Angka maksimum pada emptyArray: \newline
+	100 \newline
+	Menghapus angka maksimum pada emptyArray: \newline
+	[81, 72, 10] \newline
+	Menghapus seluruh isi emptyArray: \newline
+	[] \newline
+\end{minipage}}
+\pagebreak
+\section{Penjelasan Program}
+\subsection{Fungsi untuk menghapus semua element pada array}
+\lstinputlisting[label={hapussemua},caption={Fungsi untuk menghapus seluruh isi Array}, language={C++}, firstline=92, lastline=98]{tugas.cpp}
+\par
+Dengan memanfaatkan operasi dasar dalam array, dapat dibuat suatu fungsi untuk menghapus seluruh element dalam suatu array. Penghapusan tersebut dilakukan dengan cara memanggil fungsi remove() dengan parameter index 0 secara berulang kali sampai ukuran array tersebut lebih kecil dari pada 0.
+\par
+Fungsi remove sendiri bekerja dengan cara memindahkan element yang ada pada n+1 ke n, dimana n adalah index dari element yang akan dihapus.
+\subsection{Fungsi untuk mencari posisi nilai tertinggi}
+\lstinputlisting[label={maxvalue},caption={Fungsi untuk mencari nilai tertinggi}, language={C++}, firstline=100, lastline=115]{tugas.cpp}
+\par
+Dibutuhkan satu parameter dalam fungsi ini yaitu, ret\_index yang berupa boolean. Paramter ini digunakan untuk menentukan keluaran dari fungsi ini, apakah dalam bentuk index atau nilai maksimum.
+\par
+Cara kerja dari fungsi ini adalah sebagai berikut:
+\begin{enumerate}
+	\item Menetapkan element pertama sebagai nilai maksimum dengan menyimpannya ke dalam variabel max.
+	\item Melakukan pengaksesan dari element kedua sampai dengan element terakhir.
+	\item Membandingkan  variabel max dengan elemeent yang sedang diakses.
+	\item Jika, variabel max lebih kecil daripada element yang diakses maka element yang sedang diakses dimasukkan ke dalam variabel max.
+	\item Setelah semua element dalam array terakses, dilakukan pengembalian nilai. Jika ret\_index bernilai false maka fungsi akan mereturn variabel max. Jika bernilai true, maka akan dilakukan pemanggilan fungsi search untuk menentukan posisi nilai maksimum tersebut.
+\end{enumerate}
+\par
+Fungsi ini masih bisa dibuat menjadi lebih efisien yaitu dengan membuat variabel baru untuk menyimpan nilai dari variabel i ketika persyaratan max $<$ mArray[i] bernilai true. Variabel inilah yang kemudian akan dikembalikan. Jika cara tersebut diimplementasikan, maka fungsi akan menjadi seperti sebagai berikut:
+\lstinputlisting[label={findmaxefc},caption={Fungsi untuk mencari nilai tertinggi}, language={C++}]{findmax.cpp}
+\subsection{Fungsi untuk menghapus nilai maksimum}
+\lstinputlisting[label={hapusmaks},caption={Fungsi untuk menghapus nilai maksimum}, language={C++}, firstline=117, lastline=120]{tugas.cpp}
+\par
+Fungsi ini didgunakan untuk menghapus nilai maksimum dalam suatu array. Cara kerja dari fungsi ini memanfaatkan fungsi remove() dan findMaxValue(). 
+\end{document}
