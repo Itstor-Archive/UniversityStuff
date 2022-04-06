@@ -1,0 +1,13 @@
+*.pdf
+*.exe
+*.aux
+*.fdb_latexmk
+*.fls
+*.log
+*.synctex.gz
+.vscode
+*.out
+.pytest_cache
+*.python
+backup/
+__pycache__/
