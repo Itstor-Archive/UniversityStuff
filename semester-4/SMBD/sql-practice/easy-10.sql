@@ -1,0 +1,1 @@
+Select * FROM patients Where patient_id IN (1,45,534,879,1000);

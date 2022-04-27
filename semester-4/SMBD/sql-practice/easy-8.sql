@@ -1,0 +1,1 @@
+Select COUNT(*) FROM patients where YEAR(birth_date)=2010;

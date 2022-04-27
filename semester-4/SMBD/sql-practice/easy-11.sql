@@ -1,0 +1,1 @@
+Select COUNT(*) as total_admissions FROM admissions;

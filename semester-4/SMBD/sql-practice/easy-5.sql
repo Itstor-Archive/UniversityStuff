@@ -1,0 +1,1 @@
+UPDATE patients SET allergies='NKA' where allergies is NULL
