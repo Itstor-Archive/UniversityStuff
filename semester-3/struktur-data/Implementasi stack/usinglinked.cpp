@@ -46,7 +46,7 @@ public:
         delete mCurrentNode;
         mCurrentNode = tempNode;
         mSize--;
-        return std::move(temp);
+        return temp;
     }
 
     bool empty() const
